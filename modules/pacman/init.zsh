@@ -28,7 +28,7 @@ if (( $+commands[$_pacman_frontend] )); then
     source "${0:h}/${_pacman_frontend}.zsh"
   fi
 else
-  _pacman_frontend='pacman'
+  _pacman_frontend='pacman --color auto'
   _pacman_sudo='sudo '
 fi
 

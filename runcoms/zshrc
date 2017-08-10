@@ -3,11 +3,116 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Lester Hedges <lester.hedges@gmail.com>
 #
+
+# Check operating system.
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+   platform='freebsd'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Useful aliases.
+if [[ $platform == 'linux' ]]; then
+   alias ls='ls --color=auto --group-directories-first'
+else
+   alias ls='ls -G'
+fi
+alias ll='ls -lh'
+alias lt='ls -ltr'
+alias df='df -h'
+alias diff='colordiff'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias o=less
+alias vi=vim
+alias ssh='TERM=xterm ssh -Y'
+alias sudo='sudo '
+alias zsnes='zsnes -v 20'
+alias sdmlame='sdlmame -rompath ~/Games/Emulators/MAME'
+alias vmd='vmd -pos 550 180 -size 400 400'
+alias xmgrace='xmgrace -xrm "XMgrace*fontList:fixed"'
+alias firefox='firefox > /dev/null 2>&1'
+alias man='man -P less'
+alias adb='/opt/android-sdk/platform-tools/adb'
+alias fastboot='/opt/android-sdk/platform-tools/fastboot'
+alias e=exit
+alias seed='od -vAn -N4 -tu4 < /dev/urandom'
+alias mutt='cd ~/Downloads && mutt'
+alias pacman='pacman --color auto'
+alias clear="clear && printf '\e[3J'"
+
+alias reboot='systemctl reboot'
+alias shutdown='systemctl poweroff'
+
+# Server variables.
+insure='lohedges@insure.lbl.gov'
+lrc='lohedges@lrc-login.lbl.gov'
+lrcxfer='lohedges@lrc-xfer.lbl.gov'
+lcpu='lh627@lcpu.bath.ac.uk'
+pymc='lh627@pymc-jack03.campus.bath.ac.uk'
+aquila='lh627@aquila.campus.bath.ac.uk'
+balena='lh627@balena.bath.ac.uk'
+website='lohedges_lesterhedges@ssh.phx.nearlyfreespeech.net'
+
+# Compiler flag variables.
+png=(-I/usr/include/freetype2/ -lpngwriter -lfreetype -lpng)
+
+export SVN_EDITOR=vim
+
+export SAGE_BROWSER="firefox"
+export BROWSER=firefox
+
+# Make man pages more readable.
+export MANWIDTH=80
+
+# Handy systemd shortcuts.
+if [[ $platform == 'linux' ]]; then
+    if ! systemd-notify --booted; then # not using systemd
+    start() {
+        sudo rc.d start $1
+    }
+
+    restart() {
+        sudo rc.d restart $1
+    }
+
+    stop() {
+        sudo rc.d stop $1
+    }
+    else
+    start() {
+        sudo systemctl start $1
+    }
+
+    restart() {
+        sudo systemctl restart $1
+    }
+
+    stop() {
+        sudo systemctl stop $1
+    }
+
+    #enable() {
+        #sudo systemctl enable $1
+    #}
+
+    status() {
+        sudo systemctl status $1
+    }
+
+    disable() {
+        sudo systemctl disable $1
+    }
+    fi
+fi

@@ -11,6 +11,8 @@
 
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
+zstyle -e :urlglobber url-other-schema \
+'[[ $words[1] == scp ]] && reply=("*") || reply=(http https ftp)'
 
 #
 # General
@@ -38,11 +40,11 @@ unsetopt CHECK_JOBS       # Don't report on jobs when shell exit.
 #
 
 if zstyle -t ':prezto:environment:termcap' color; then
-  export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
-  export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
-  export LESS_TERMCAP_me=$'\E[0m'          # Ends mode.
-  export LESS_TERMCAP_se=$'\E[0m'          # Ends standout-mode.
-  export LESS_TERMCAP_so=$'\E[00;47;30m'   # Begins standout-mode.
-  export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
-  export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
+  export LESS_TERMCAP_mb=$'\E[01;31m'       # Enter blinking mode
+  export LESS_TERMCAP_md=$'\E[01;34m'       # Enter double-bright mode
+  export LESS_TERMCAP_me=$'\E[0m'           # Turn off all appearance modes (mb, md, so, us)
+  export LESS_TERMCAP_se=$'\E[0m'           # Leave standout mode
+  export LESS_TERMCAP_so=$'\E[01;33m'       # Enter standout mode
+  export LESS_TERMCAP_ue=$'\E[0m'           # Leave underline mode
+  export LESS_TERMCAP_us=$'\E[01;32m'       # Enter underline mode
 fi
