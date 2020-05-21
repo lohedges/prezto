@@ -71,6 +71,8 @@ alias shutdown='systemctl poweroff'
 # Server variables.
 bc3='lh17146@bluecrystalp3.bris.ac.uk'
 bc4='lh17146@bc4login.acrc.bris.ac.uk'
+bp1='lh17146@bp1-login01b.acrc.bris.ac.uk'
+bc1='lh17146@bluecryologin1.acrc.bris.ac.uk'
 oci='lester@129.213.139.109'
 ocimgt='-i /home/lester/.oci/oci_api_key.pem -A opc@129.213.139.109'
 cibod='lester@cibod.acrc.bris.ac.uk'
@@ -139,6 +141,3 @@ if [[ $platform == 'linux' ]]; then
     }
     fi
 fi
-
-# Source BioSimSpace aliases.
-source /home/lester/.biosimspacerc
