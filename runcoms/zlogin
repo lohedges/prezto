@@ -26,4 +26,7 @@
 
 } >&2
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && {
+    sudo /usr/bin/prime-switch
+    exec startx
+}
