@@ -101,6 +101,9 @@ export VMDNOOPTIX=1
 
 export AMBERHOME=/home/lester/Downloads/amber18
 
+# Append /usr/local/lib to LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
 # Handy systemd shortcuts.
 if [[ $platform == 'linux' ]]; then
     if ! systemd-notify --booted; then # not using systemd
