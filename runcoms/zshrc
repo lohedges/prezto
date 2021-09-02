@@ -39,7 +39,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias o=less
 alias vi=vim
-alias ssh='TERM=xterm ssh -Y'
+alias ssh='kitty +kitten ssh'
 alias sudo='sudo '
 alias zsnes='zsnes -v 20'
 alias sdmlame='sdlmame -rompath ~/Games/Emulators/MAME'
@@ -73,6 +73,7 @@ bc3='lh17146@bluecrystalp3.bris.ac.uk'
 bc4='lh17146@bc4login.acrc.bris.ac.uk'
 bp1='lh17146@bp1-login01b.acrc.bris.ac.uk'
 bc1='lh17146@bluecryologin1.acrc.bris.ac.uk'
+dice='lh17146@gc00.dice.priv'
 oci='lester@129.213.139.109'
 ocimgt='-i /home/lester/.oci/oci_api_key.pem -A opc@129.213.139.109'
 cibod='lester@cibod.acrc.bris.ac.uk'
@@ -99,7 +100,8 @@ export SIRE_SILENT_PHONEHOME=1
 # Fix for VMD 1.9.4
 export VMDNOOPTIX=1
 
-export AMBERHOME=/home/lester/Downloads/amber18
+export AMBERHOME=/home/lester/sire.app
+export CUDA_VISIBLE_DEVICES=0
 
 # Append /usr/local/lib to LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
