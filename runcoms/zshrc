@@ -55,6 +55,7 @@ alias mutt='cd ~/Downloads && mutt'
 alias pacman='pacman --color auto'
 alias pac='aurman'
 alias clear="clear && printf '\e[3J'"
+alias sloccount='LANG=C sloccount'
 
 alias pac=aurman   # For convenience
 
