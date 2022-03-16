@@ -69,6 +69,10 @@ alias aurman='pacman_program="sudo -u #$UID /usr/bin/aurman --optimistic_version
 alias reboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
 
+# LHCb server tunneling aliases.
+alias lbtun='ssh -N -f -q lbtun'
+alias lbtunkill="for i in \`ps auxww | grep lbtun | grep -v grep | awk '{print \$2}'\`; do echo killing \$i; kill \$i; done"
+
 # Server variables.
 bc3='lh17146@bluecrystalp3.bris.ac.uk'
 bc4='lh17146@bc4login.acrc.bris.ac.uk'
