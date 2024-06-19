@@ -39,7 +39,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias o=less
 alias vi=vim
-alias ssh='kitty +kitten ssh'
+#alias ssh='kitty +kitten ssh'
 alias sudo='sudo '
 alias zsnes='zsnes -v 20'
 alias sdmlame='sdlmame -rompath ~/Games/Emulators/MAME'
@@ -68,6 +68,7 @@ alias aurman='pacman_program="sudo -u #$UID /usr/bin/aurman --optimistic_version
 
 alias reboot='systemctl reboot'
 alias shutdown='systemctl poweroff'
+alias suspend='systemctl suspend'
 
 # LHCb server tunneling aliases.
 alias lbtun='ssh -N -f -q lbtun'
@@ -83,6 +84,8 @@ oci='lester@129.213.139.109'
 ocimgt='-i /home/lester/.oci/oci_api_key.pem -A opc@129.213.139.109'
 cibod='lester@cibod.acrc.bris.ac.uk'
 website='lohedges_lesterhedges@ssh.phx.nearlyfreespeech.net'
+bede='lester@bede.dur.ac.uk'
+neogodzilla='lester@neogodzilla.chem.ed.ac.uk'
 
 # Compiler flag variables.
 png=(-I/usr/include/freetype2/ -lpngwriter -lfreetype -lpng)
@@ -105,7 +108,7 @@ export SIRE_SILENT_PHONEHOME=1
 # Fix for VMD 1.9.4
 export VMDNOOPTIX=1
 
-export AMBERHOME=/home/lester/sire.app
+export AMBERHOME=/home/lester/.conda/envs/openbiosim
 export CUDA_VISIBLE_DEVICES=0
 
 # Append /usr/local/lib to LD_LIBRARY_PATH
